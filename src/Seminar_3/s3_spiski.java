@@ -72,7 +72,7 @@ public class s3_spiski {
         ArrayList<Integer> listI2 = new ArrayList<>();
         for (int i = 0; i < 10; i++) listI2.add(new Random().nextInt(25));
 
-        ListIterator<Integer> iterator_2 = listI2.listIterator(listI2.size()-1);
+        ListIterator<Integer> iterator_2 = listI2.listIterator(listI2.size() - 1);
         while (iterator_2.hasPrevious()) { //iterator.hasNext() двигается в одну или другую сторону
             int n = iterator_2.previous();
             System.out.print(n + ", ");
@@ -128,7 +128,7 @@ public class s3_spiski {
             listI2.add(new Random().nextInt(25));
         }
         System.out.println(listI2);
-        System.out.println(listI2.subList(5,9)); // *** subList - возвращает подсписок сначиная с заданного начального индекса до заданного конечного не включя последний индекс
+        System.out.println(listI2.subList(5, 9)); // *** subList - возвращает подсписок сначиная с заданного начального индекса до заданного конечного не включя последний индекс
 
 
         // *** clone - возвращает объект такой же которые его вызвал
@@ -168,8 +168,8 @@ public class s3_spiski {
 
         listI2.sort(new Comparator<Integer>() {
             public int compare(Integer o1, Integer o2) {
-                if (o1%2!=0) return 1;         // варианты сортировки по условиям
-                if (o2%2!=0) return 0;
+                if (o1 % 2 != 0) return 1;         // варианты сортировки по условиям
+                if (o2 % 2 != 0) return 0;
                 return -1;
             }
         });
@@ -204,8 +204,16 @@ public class s3_spiski {
         // *** LinkedList - вид списка
         LinkedList<Integer> integers = new LinkedList<>(); // медленный и огромный
         integers.add(3);
-        int r = integers.get(7); // в линкед листе находится ячейка нуптем перебора каждой, до искомой, а не сразу обращается  потому что нет индексов
+//        int r = integers.get(3);    // в линкед листе находится ячейка нуптем перебора каждой, до искомой, а не сразу обращается  потому что нет индексов
+        // плюсы что если удалить узел из середины не придется переписывать весь лист, изменятся только ссылки между соседними узлами
+        integers.addFirst(4);
+        listI1.addAll(integers);    // для работы с данными линкед листа удобнее его передать в эррай лист
 
+        // Вывести массив через принт
+        System.out.println();
+        System.out.println("*** Вывести массив через принт ****");
+        System.out.println(new int[]{1, 15, 12}); //покажет объект массива, до собачки I - integer, после сорбачки HASH
+        System.out.println(Arrays.toString(new int[]{1, 15, 12})); // выведет занчиение массива
 
 
     }
