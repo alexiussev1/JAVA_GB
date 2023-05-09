@@ -59,14 +59,14 @@ public class lesson_3_4_Collection {
         list2.add('S');
         list2.add('e');
         list2.add('r');
-        System.out.println( list2);
+        System.out.println(list2);
         list2.remove(1); //java.lang.UnsupportedOperationException
-        List<Character> list3=list.copy(list2);
+        System.out.println(list2);
+        List<Character> list3 = List.copyOf(list2);
 
 
-
-        }
     }
+}
 
 
 
