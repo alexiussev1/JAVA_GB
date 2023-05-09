@@ -96,6 +96,7 @@ public class s3_spiski {
         listI1.removeAll(listI2); // *** removAll удаляет из списка все элементы которые совпадают по значению со вторым списком
         System.out.println(listI1);
 
+
         //*** retainAll
         System.out.println("*** retainAll ***");
         for (int i = 0; i < 10; i++) {
@@ -109,6 +110,7 @@ public class s3_spiski {
         listI1.retainAll(listI2); // оставит совпадающие значения в 1 списке которые есть во втором
         System.out.println(listI1);
 
+
         //*** contains
         System.out.println("*** contains ***");
         for (int i = 0; i < 10; i++) {
@@ -117,6 +119,7 @@ public class s3_spiski {
         }
         listI2.contains(45); // *** contains если есть совпадение по значению вернет истину иначе ложь
         System.out.println(listI2.contains(45));
+
 
         // *** subList - возвращает подсписок сначиная с заданного начального индекса до заданного конечного
         System.out.println("*** subList ***");
@@ -127,11 +130,13 @@ public class s3_spiski {
         System.out.println(listI2);
         System.out.println(listI2.subList(5,9)); // *** subList - возвращает подсписок сначиная с заданного начального индекса до заданного конечного не включя последний индекс
 
+
         // *** clone - возвращает объект такой же которые его вызвал
         System.out.println("*** clone ***");
         Object listI3 = listI2.clone();
         System.out.println(listI2);
         System.out.println(listI3);
+
 
         // *** clear - очищает список удаляя значения но не ячейки
         System.out.println("*** clear ***");
@@ -141,6 +146,7 @@ public class s3_spiski {
         System.out.println(listI1);
         listI1.clear();
         System.out.println(listI1);
+
 
         // *** sort - сортиировка списка (нужен класс - корпаратор)
         System.out.println("*** sort ***");
@@ -153,13 +159,53 @@ public class s3_spiski {
         listI2.sort(Comparator.reverseOrder()); // сортировка по убыванию
         System.out.println(listI2);
 
+        listI2.sort(new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                return 0; // o1-o2 - от меньшегок большему o2-o1 - от большего к меньшему
+            }
+        });
+        System.out.println(listI2);
 
+        listI2.sort(new Comparator<Integer>() {
+            public int compare(Integer o1, Integer o2) {
+                if (o1%2!=0) return 1;         // варианты сортировки по условиям
+                if (o2%2!=0) return 0;
+                return -1;
+            }
+        });
+        System.out.println(listI2);
 
+        // **** сортировка строк в списке
 
+        System.out.println("*** что-то текстовое ***");
 
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("One");
+        list1.add("Два");
+        list1.add(1, "Три");
+        list1.add("Квас");
+        list1.add("Ал");
+        list1.add("Пирог");
+        list1.add("Слон");
+        list1.add("Кора");
+        list1.remove(1);
+        a = list1.get(0);
+        System.out.println(list1);
 
+        list1.forEach(System.out::print);
 
-        listI1.addAll(listI1); // *** добавление элементов из списка - тут из самого в себя
+        list1.sort(new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return o1.split("")[1].compareTo(o2.split("")[1]);
+            }
+        });
+
+        // *** LinkedList - вид списка
+        LinkedList<Integer> integers = new LinkedList<>(); // медленный и огромный
+        integers.add(3);
+        int r = integers.get(7); // в линкед листе находится ячейка нуптем перебора каждой, до искомой, а не сразу обращается  потому что нет индексов
+
 
 
     }
