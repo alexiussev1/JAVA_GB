@@ -29,7 +29,7 @@ public class Homework_3_4 {
         System.out.println(my_list_4_1);
         System.out.println(my_list_4_2);
 
-        ArrayList<Integer> my_list_4_temp = new ArrayList<>(); // создаем темповский список
+        ArrayList<Integer> my_list_4_temp; // создаем темповский список
         my_list_4_temp = (ArrayList<Integer>) my_list_4_2.clone();
         my_list_4_temp.removeAll(my_list_4_1); //убираме в темповском списке все значения из первого списка
         my_list_4_1.addAll(my_list_4_temp);
